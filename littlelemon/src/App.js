@@ -11,26 +11,34 @@ function App() {
   return (
     <Router>
     <>
+    <div className="grid-container" >
+      
+    
+     
+       <Routes>
+      <Route path="/" element={<Nav />} /> 
+      <Route path="/about" element={<Main />} />
+       <Route path="/menu" element={<Nav />} />
+       <Route path="/reservations" element={<Main />} />
+       <Route path="/onlineorder" element={<Main />} />
+       <Route path="/login" element={<Footer />} />
+      
+      </Routes> 
+     
       <Header/>
-      <Nav/>
-      <Routes>
-      <Route path="/" element={<Home />} /> 
-      <Route path="/about" element={<About />} />
-       <Route path="/menu" element={<Menu />} />
-       <Route path="/reservations" element={<Reservations />} />
-       <Route path="/onlineorder" element={<OnlineOrder />} />
-       <Route path="/login" element={<Login />} />
-
-      </Routes>
-      <Main/>
-      <Footer/>
+      {/* <Main/>
+      <Footer/> */}
+      </div>
      
       
     </>
+    
     </Router>
+    
   );
 }
 
 export default App;
 
 // return ( <Router> <div> <Routes> <Route path="/" element={<Home />} /> <Route path="/about" element={<About />} /> <Route path="/contact" element={<Contact />} /> </Routes> </div> </Router> );
+

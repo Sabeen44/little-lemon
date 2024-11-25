@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 
 function Nav() {
      return ( 
-        <>
-     <div>
-         <img src={`${process.env.PUBLIC_URL}/logo192.png`} alt="Logo" />
-  </div> 
+      <>
+        
+     <div className="nav">
+      <div className="nav-image">
+         <img src={`${process.env.PUBLIC_URL}/little lemon logo.png`} alt="Logo" width={200}/>
+         </div>
 
-    <div>
+    <div className="nav-links" >
         <ul>
            <li><Link to="/">Home</Link></li>
            <li><Link to="/About">About</Link></li>
@@ -19,6 +21,7 @@ function Nav() {
            <li><Link to="/Order Online">Order Online</Link></li>
            <li><Link to="/Login">Login</Link></li>
         </ul>
+   </div>
    </div>
   
   </>
