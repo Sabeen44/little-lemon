@@ -55,7 +55,7 @@ Nav Styling
 .nav-links a { text-decoration: none; color: #000; font-weight: bold; }
 
 
-.header-container{display: flex;justify-content: space-between; align-items: center; padding: 20px; background-color: #495E57; padding: 1rem; text-align: center;color:black; height: auto;width: 100%;margin-top: 20px; }
+.header-container{display: flex;justify-content: space-between; align-items: center;  background-color: #495E57; padding: 1rem; text-align: center;color:black; height: auto;width: 100%;margin-top: 20px; }
 
 .header-content { display: flex; flex-direction: column;justify-content: space-between;  max-width: 60%;padding-left: 200px;}
 
@@ -66,4 +66,29 @@ Nav Styling
  .header-text {color: #FFFFFF;margin-top: 30px;}
 
 .header-container .header-image { width: 300px; height: 400px; border-radius: 20px; padding: 100px; margin-bottom: -180px; margin-right: 100px;}
+
+.specialscontainer 
+{display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: #FFFFFF;
+  color:black; height: auto;width: 100%;margin-top: 20px; }
+
+.specials-container .specials-image{display: flex; padding: 1rem;width:450px; justify-content: space-between;
+
+ 
+
+}
+
+.specials-items{
+  display: flex;justify-content: space-between;
+  width:1800px;
+}
+
+.specials-items .btn-order{ margin-top: 20px; padding: 15px 30px; background-color:#F4CE14; color: white; border: none; border-radius: 20px; cursor: pointer;font-weight: bold;
+justify-self: flex-end;
+
+}
+
+
+
+
+
 

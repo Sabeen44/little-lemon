@@ -5,7 +5,11 @@ import Nav from './Nav.js'
 import Header from './Header.js'
 import Footer from './Footer.js'
 import Main from './Main.js'
+import Homepage from './Homepage.js'
+import Bookingpage from './Bookingpage.js'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+//const availableTimes=()=>{ [availableTimes, setAvailableTimes] = useState([ '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ])}
 
 function App() {
   return (
@@ -14,18 +18,19 @@ function App() {
     <div className="grid-container" >
       
     
-     
+     {/* <Nav/>
+     <Header/> */}
        <Routes>
-      <Route path="/" element={<Nav />} /> 
-      <Route path="/about" element={<Main />} />
+       <Route path="/" element={<Homepage />} />  
+      <Route path="/about" element={<Header />} />
        <Route path="/menu" element={<Nav />} />
-       <Route path="/reservations" element={<Main />} />
        <Route path="/onlineorder" element={<Main />} />
        <Route path="/login" element={<Footer />} />
+       <Route path="/booking" element={<Bookingpage />} />
       
       </Routes> 
+    
      
-      <Header/>
       {/* <Main/>
       <Footer/> */}
       </div>
