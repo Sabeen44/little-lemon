@@ -20,10 +20,11 @@ export const BookingForm = ({ availableTimes, dispatch }) => {
     
     return (
          <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}> 
+         <h1>Booking Form</h1>
          <label htmlFor="res-date">Choose date</label> 
          <input type="date" id="res-date" value={resDate} onChange={handleDateChange} /> 
          <label htmlFor="res-time">Choose time</label>
-          <select id="res-time" value={resTime} onChange={(e) => setResTime(e.target.value)}> {availableTimes.map((time, index) => ( <option key={index} value={time}> {time} </option> ))} </select> 
+          <select id="res-time" value={resTime} onChange={(e) => setResTime(e.target.value)}> {availableTimes && availableTimes.map((time, index) => ( <option key={index} value={time}> {time} </option> ))} </select> 
           <label htmlFor="guests">Number of guests</label> 
           <input type="number" id="guests" placeholder="1" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} />
            <label htmlFor="occasion">Occasion</label> <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
