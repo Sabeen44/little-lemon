@@ -8,6 +8,8 @@ import Main from './Main.js'
 import Homepage from './Homepage.js'
 import Bookingpage from './Bookingpage.js'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ConfirmedBooking from './ConfirmedBooking';
+
 
 //const availableTimes=()=>{ [availableTimes, setAvailableTimes] = useState([ '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ])}
 
@@ -27,6 +29,7 @@ function App() {
        <Route path="/onlineorder" element={<Main />} />
        <Route path="/login" element={<Footer />} />
        <Route path="/booking" element={<Bookingpage />} />
+       <Route path="/confirmation" element={<ConfirmedBooking/>} />
       
       </Routes> 
     

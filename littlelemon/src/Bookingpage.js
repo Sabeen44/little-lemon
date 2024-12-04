@@ -1,17 +1,42 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Main from './Main';
+import {fetchAPI} from "./mockAPI.js";
+//import { useNavigate } from 'react-router-dom';
 
-export const BookingForm = ({ availableTimes, dispatch }) => { 
+
+//export const fetchAPI = window.fetchAPI; 
+
+export const BookingForm = ({ availableTimes, dispatch, submitForm }) => { 
     const [resDate, setResDate] = useState('');
      const [resTime, setResTime] = useState(''); 
      const [guests, setGuests] = useState(1);
       const [occasion, setOccasion] = useState('');  
+      //const navigate = useNavigate();
+      //const [localAvailableTimes, setLocalAvailableTimes] = useState('availableTimes');
 
       //const [availableTimes, setAvailableTimes] = useState([ '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ]);
 
+      useEffect(() => {
+         const fetchAvailableTimes = async (date) => { 
+            try {
+                 const times = await fetchAPI(date); 
+                 dispatch({ type: 'UPDATE_TIMES', payload: times }); }
+                  catch (error) { 
+                    console.error(error.message); } }; if (resDate) { 
+                        fetchAvailableTimes(resDate); } }, [resDate, dispatch]);
+
+    //   const fetchAvailableTimes = async (date) => { const times = await fetchAPI(date); dispatch({type: 'UPDATE_TIMES', payload: times}); };
+
+
       const handleSubmit = (e) => { e.preventDefault();
          // Form submission logic here 
-        console.log({ resDate, resTime, guests, occasion, }); };
+        console.log({ resDate, resTime, guests, occasion, });
+        const formData = { date: resDate, time: resTime, guests: guests, occasion: occasion, };
+         submitForm(formData);
+        //navigate('/confirmation');
+         };
+
+
 
     
 
@@ -47,4 +72,3 @@ function Bookingpage(){
 
 
 export default Bookingpage
-

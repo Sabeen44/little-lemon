@@ -1,25 +1,35 @@
+import React, { useReducer, useEffect } from 'react'; 
+import { BookingForm } from './Bookingpage'; 
+import { fetchAPI, submitAPI } from './mockAPI';
+import { useNavigate } from 'react-router-dom';
 
-import React, { useReducer } from 'react';
 
- import { BookingForm } from './Bookingpage';
- // Make sure you import correctly 
-
- export const initializeTimes = () => [ '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', ];
-
- export const updateTimes = (state, action) => { 
-    switch (action.type) { 
-    case 'UPDATE_TIMES': 
-    // For now, return the same times regardless of the date 
-    return initializeTimes();
-     default: return state;
-    }}
-
-    //const updateTimes = (state, action) => { if (action.type === 'UPDATE_TIMES') { // For now, return the same times regardless of the date return initializeTimes(); } else { return state; } };
- 
- export const Main = () => { 
-    const [availableTimes, dispatch] = useReducer(updateTimes,[],initializeTimes);
-     return (
-         <div> <BookingForm availableTimes={availableTimes} dispatch={dispatch} /> </div> ); };
+//const fetchAPI = window.fetchAPI; 
+console.log('Is fetchAPI defined?', !!window.fetchAPI);
+export const initializeTimes = async (fetchAPI) => {
+      const today = new Date().toISOString().split("T")[0];
+       try { 
+          const availableTimes = await fetchAPI(today);
+           return availableTimes; } catch (error)
+            { console.error(error.message); return []; } };
+     
+export const updateTimes = async (state, action, fetchAPI) => { switch (action.type)
+         { case 'UPDATE_TIMES': try { const times = await fetchAPI(action.date); return times; } catch (error) { console.error(error.message); return []; } 
+         ; default: return state; } }; 
          
-         
-    
+export const Main = () => {
+      const [availableTimes, dispatch] = useReducer(updateTimes, []);
+      const navigate = useNavigate(); 
+      
+      useEffect(() => {
+           const init = async () => { 
+               const times = await initializeTimes();
+                dispatch({ type: 'UPDATE_TIMES', payload: times }); }; init(); }, []);
+
+                const submitForm = async (formData) => { 
+                    try { const response = await submitAPI(formData); if (response) { navigate('/confirmation'); } } catch (error) { console.error('Form submission failed:', error); } };
+                
+                
+                return ( <div> <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} /> </div> ); }; 
+     
+     export default Main;
