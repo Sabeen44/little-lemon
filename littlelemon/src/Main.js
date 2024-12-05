@@ -13,21 +13,29 @@ export const initializeTimes = async (fetchAPI) => {
            return availableTimes; } catch (error)
             { console.error(error.message); return []; } };
      
-export const updateTimes = async (state, action, fetchAPI) => { switch (action.type)
-         { case 'UPDATE_TIMES': try { const times = await fetchAPI(action.date); return times; } catch (error) { console.error(error.message); return []; } 
-         ; default: return state; } }; 
+ export const updateTimes = async (state, action) => {
+           switch (action.type) { case 'UPDATE_TIMES': try { const times = await fetchAPI(action.date); 
+               return times; } 
+               catch (error) { 
+                    console.error(error.message); 
+                    return []; }
+                     default: return state; } };
+
+const reducer = (state, action) => { switch (action.type) { case 'UPDATE_TIMES': return action.payload; default: return state; } };   
+
          
 export const Main = () => {
-      const [availableTimes, dispatch] = useReducer(updateTimes, []);
+      const [availableTimes, dispatch] = useReducer(reducer, []);
       const navigate = useNavigate(); 
       
-      useEffect(() => {
-           const init = async () => { 
-               const times = await initializeTimes();
-                dispatch({ type: 'UPDATE_TIMES', payload: times }); }; init(); }, []);
+useEffect(() => {
+      const init = async () => { 
+          const times = await initializeTimes(fetchAPI);
+          dispatch({ type: 'UPDATE_TIMES', payload: times }); }; init(); }, []);
 
-                const submitForm = async (formData) => { 
-                    try { const response = await submitAPI(formData); if (response) { navigate('/confirmation'); } } catch (error) { console.error('Form submission failed:', error); } };
+     const submitForm = async (formData) => { 
+           try { const response = await submitAPI(formData); if (response) { navigate('/confirmation'); } }
+            catch (error) { console.error('Form submission failed:', error); } };
                 
                 
                 return ( <div> <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} /> </div> ); }; 
