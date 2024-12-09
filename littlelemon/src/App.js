@@ -17,25 +17,24 @@ function App() {
   return (
     <Router>
     <>
-    <div className="grid-container" >
+    <div>
       
     
-     {/* <Nav/>
-     <Header/> */}
+      {/* <Nav/>
+     <Homepage/>  */}
        <Routes>
        <Route path="/" element={<Homepage />} />  
-      <Route path="/about" element={<Header />} />
-       <Route path="/menu" element={<Nav />} />
+      <Route path="/about" element={<Homepage />} />
+       <Route path="/menu" element={<Main />} />
        <Route path="/onlineorder" element={<Main />} />
-       <Route path="/login" element={<Footer />} />
+       <Route path="/login" element={<Main />} />
        <Route path="/booking" element={<Bookingpage />} />
        <Route path="/confirmation" element={<ConfirmedBooking/>} />
       
       </Routes> 
+      {/* <Main/> */}
+      <Footer/>
     
-     
-      {/* <Main/>
-      <Footer/> */}
       </div>
      
       

@@ -11,9 +11,9 @@ import Specials from "./Specials.js"
 function Homepage(){
 
     return(
-        <div>
-            <Nav/>
-            <Header/>
+        <div div className="grid-container">
+             <Nav/>
+            <Header/> 
             <Specials/>
             
         </div>
