@@ -1,15 +1,15 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'
-
+import logo from './images/littlelemonlogo.png'
 
 
 function Nav() {
      return ( 
       <>
         
-     <div className="nav">
+     <div className="nav-container">
       <div className="nav-image">
-         <img src={`${process.env.PUBLIC_URL}/little lemon logo.png`} alt="Logo" width={200}/>
+         <img src={logo} alt="Logo" width={200}/>
          </div>
 
     <div className="nav-links" >
@@ -18,7 +18,7 @@ function Nav() {
            <li><Link to="/About">About</Link></li>
            <li><Link to="/Menu">Menu</Link></li>
            <li><Link to="/booking">Reservation</Link></li>
-           <li><Link to="/Order Online">Order Online</Link></li>
+           <li><Link to="/onlineorder">Order Online</Link></li>
            <li><Link to="/Login">Login</Link></li>
         </ul>
    </div>

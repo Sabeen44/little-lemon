@@ -1,5 +1,5 @@
 import React from 'react'; 
-import hotdog from './images/hotdog.jpg'
+import restaurantfood from './images/restaurantfood.jpg'
 
 function Header(){
     return(
@@ -13,10 +13,12 @@ function Header(){
 </div>
 
 
-<img src={hotdog} className="header-image" alt="hotdog"></img>
+<img src={restaurantfood} className="header-image" alt="food sample"></img>
 </div>
 </>
     )
 }
 
 export default Header;
+
+
