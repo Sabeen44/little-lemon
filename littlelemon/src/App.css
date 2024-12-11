@@ -105,7 +105,18 @@
 
 .footer-section a:hover { text-decoration: underline; }
 
+/*****BookingForm*****/
+.booking-page{display: flex;align-items: center;display: block;}
 
+.booking-form{background-color: #495e57;padding: 10px 150px 100px 100px; color: #FFFFFF;margin: auto;}
+
+.booking-form input,select{font-size:large; padding: 10px;margin-bottom: 1rem;}
+
+.form-label{font-weight: bold;font-size: large;}
+
+
+
+ .form-logo{width:300px;margin: 20px;} 
 
  @media (max-width: 768px) { .nav .nav-image { margin-left: 0.5rem; } .nav-links { margin-right: 1rem;flex-direction: column; } .nav-links ul { gap:5px ;flex-direction: column;flex-wrap: wrap; } .nav-container { flex-direction: column; align-items:center;height: auto; }
  
@@ -116,6 +127,8 @@
 
 .footer{flex-direction: column;height: auto; padding: 1rem; 
 }.footer-content { flex-direction: column; margin-left: 0; align-items: center; }.footer-section { margin: 20px 0; text-align: center; } .footer-logo { margin-left: 0; margin-bottom: 20px; } .footer-section.contact-info, .footer-section.social-media { flex: unset; margin: 0; }
+
+.booking-page{flex-direction: column;}
 
  }
 

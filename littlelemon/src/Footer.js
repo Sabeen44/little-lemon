@@ -4,7 +4,7 @@ import logo from './images/littlelemonlogo.png'
 
 function Footer() { 
     return ( <footer className="footer">
-        <div className='footer-logo'><img src={logo} width={250}></img></div>
+        <div className='footer-logo'><img src={logo} width={250} alt="logo"></img></div>
          <div className="footer-content"> 
     <div className="footer-section contact-info"> <h3>Contact</h3> 
     <p>123 Main Street, City, Country</p> <p>Phone: (123) 456-7890</p>
