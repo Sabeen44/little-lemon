@@ -37,9 +37,23 @@
   }
 } */
 
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}  */
+
 .grid-container 
-{ display: grid; grid-template-rows: auto auto auto auto auto; 
-  grid-template-areas: "nav" "header" "specials" "reviews" "footer"; }
+{ display: grid; grid-template-rows: auto auto auto auto auto auto; 
+  grid-template-areas: "nav" "header" "specials" "reviews" "about" "footer"; }
 
 /*****Navbar*****/
 .nav-container {grid-area: nav; display: flex;flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: #FFFFFF; height: 80px; width: 100%; box-sizing: border-box; }

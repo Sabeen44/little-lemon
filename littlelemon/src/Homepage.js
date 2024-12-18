@@ -4,6 +4,7 @@ import Nav from "./Nav.js"
 import Header from './Header.js'
 import Specials from "./Specials.js"
 import Reviews from "./Reviews.js"
+import About from "./About.js"
 import Footer from "./Footer.js"
 
 
@@ -20,6 +21,7 @@ function Homepage(){
             <Header/> 
             <Specials/>
             <Reviews/>
+            <About/>
             <Footer/>
             
         </div>

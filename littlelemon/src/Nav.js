@@ -7,7 +7,7 @@ function Nav() {
      return ( 
       <>
         
-     <div className="nav-container">
+     <div className="nav-container sm:ml-6 md:flex sm:space-x-8 font-karla" >
       <div className="nav-image">
          <img src={logo} alt="Logo" width={200}/>
          </div>

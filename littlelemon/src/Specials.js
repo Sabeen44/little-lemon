@@ -20,7 +20,7 @@ const specialText = [
 ]
 
 function Specials(){
-    return ( <> <div className="specials-container"> <div className="specials-header"> <h1>This Week's Specials</h1> <button className="btn-order"> <Link className="order-link" to="/onlineorder">Online Menu</Link></button> </div> 
+    return ( <> <div className="specials-container"> <div className="specials-header"> <h1 className="text-4xl font-normal text-gray-900 font-markazi">This Week's Specials</h1> <button className="btn-order"> <Link className="order-link" to="/onlineorder">Online Menu</Link></button> </div> 
     
     <div className="specials-items"> {specialText.map((item, index) => ( <div key={index} className="special-item"> <img src={ index === 0 ? images.image1 : index === 1 ? images.image2 : images.image3 } alt={item.itemname}  /> <div className="special-text"> <h3>{item.itemname}</h3> <h4>{item.price}</h4> <p>{item.description}</p> </div> </div> ))} </div> </div> </> );
 }
