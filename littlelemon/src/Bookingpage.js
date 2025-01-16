@@ -14,17 +14,36 @@ export const BookingForm = ({ availableTimes=[], dispatch, submitForm }) => {
       const [formValid, setFormValid] = useState(false);
  
 
-      useEffect(() => {
+      // useEffect(() => {
      
-         const fetchAndDispatchTimes = async (date) => { 
-            try {
-                 const times = await fetchAPI(date); 
-                 dispatch({ type: 'UPDATE_TIMES', payload: times }); }
-                  catch (error) { 
-                    console.error(error.message); } };
-                     if (resDate) { 
-                        fetchAndDispatchTimes(resDate); } }, [resDate, dispatch]);
+        //  const fetchAndDispatchTimes = async (date) => { 
+        //     try {
+        //          const times = await fetchAPI(date); 
+        //          dispatch({ type: 'UPDATE_TIMES', payload: times }); }
+        //           catch (error) { 
+        //             console.error(error.message); } };
+        //              if (resDate) { 
+        //                 fetchAndDispatchTimes(resDate); } }, [resDate, dispatch]);
 
+        useEffect(() => {
+          const fetchAndDispatchTimes = async (date) => {
+            try {
+              console.log("Fetching times for date:", date);
+              const times = await fetchAPI(date);
+              console.log("Fetched times:", times);
+              if (times.length === 0) {
+                throw new Error("No available times for the selected date.");
+              }
+              dispatch({ type: 'UPDATE_TIMES', payload: times });
+            } catch (error) {
+              console.error(error.message);
+            }
+          };
+        
+          if (resDate) {
+            fetchAndDispatchTimes(resDate);
+          }
+        }, [resDate, dispatch]);
 
     useEffect(() => { 
         const isFormValid = resDate && resTime && guests > 0 && occasion; setFormValid(isFormValid); }, [resDate, resTime, guests, occasion]);
@@ -45,7 +64,7 @@ export const BookingForm = ({ availableTimes=[], dispatch, submitForm }) => {
     return (
       <div className='booking-page'>
      
-         <form className='booking-form' onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}> 
+         <form className='booking-form' onSubmit={handleSubmit} > 
         
          <h1>Booking Form</h1>
          <label className="form-label" htmlFor="res-date">Select date</label> 
@@ -70,7 +89,7 @@ export const BookingForm = ({ availableTimes=[], dispatch, submitForm }) => {
               <option value="Anniversary">Anniversary</option> 
              </select> 
 
-             <input type="submit" value="Make Your reservation" disabled={!formValid} /> 
+             <button className='btn-reserve' type="submit" disabled={!formValid}>Reserve</button> 
              </form> 
              </div>);
 

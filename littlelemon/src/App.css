@@ -6,7 +6,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+to
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -118,7 +118,10 @@ code {
 
 
 .footer-section.contact-info { flex: 1;
-   /* Make contact info take more space */ margin-right: 40px; /* Increase margin on the right */ } .footer-section.social-media { flex: 1; /* Make social media links take more space */ margin-left: 40px; /* Increase margin on the left */}
+    margin-right: 40px;  } 
+    .footer-section.social-media {  
+       margin-left: 40px; 
+      }
 
 .footer-section p, .footer-section a { margin: 5px 0; color: #fff; text-decoration: none; }
 
@@ -127,15 +130,27 @@ code {
 /*****BookingForm*****/
 .booking-page{display: flex;align-items: center;display: block;}
 
-.booking-form{background-color: #495e57;padding: 10px 150px 100px 100px; color: #FFFFFF;margin: auto;}
+.booking-form{background-color: #495e57;padding: 50px 150px 100px 150px; color: #FFFFFF;margin: auto; display: grid; max-width:400px; gap: 20px}
 
 .booking-form input,select{font-size:large; padding: 10px;margin-bottom: 1rem;}
 
+.booking-form h1{font-size:40px;font-weight: bolder;align-self: center;margin-bottom: 2rem;}
+
 .form-label{font-weight: bold;font-size: large;}
 
-
-
  .form-logo{width:300px;margin: 20px;} 
+ 
+
+ /*Login FOrm*/
+
+ .login-form{background-color: #495e57;padding: 10px 150px 100px 100px; color: #FFFFFF;margin: auto;max-width: 400px;
+ margin-top:5rem}
+
+ .login-form h2{font-size:40px;font-weight: 500;margin-bottom: 2rem;}
+
+ .form-group{padding: 1rem;display: flex;justify-content: space-between;font-size: larger;}
+
+ .btn-login{padding: 15px 30px ;margin-top: 2rem;border-radius:  10px;background-color:#F4CE14}
 
  @media (max-width: 768px) { .nav .nav-image { margin-left: 0.5rem; } .nav-links { margin-right: 1rem;flex-direction: column; } .nav-links ul { gap:5px ;flex-direction: column;flex-wrap: wrap; } .nav-container { flex-direction: column; align-items:center;height: auto; }
  
